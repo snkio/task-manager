@@ -1,11 +1,26 @@
 import { useState } from "react";
 
-export function TaskList({ tasks, setTasks }) {
+export function TaskList({ tasks, setTasks, currentFilter }) {
   const [editItem, setEditItem] = useState(null);
   const [editText, setEditText] = useState("");
 
+  const activeTasks = tasks.filter((task) => !task.completed);
+  const completedTasks = tasks.filter((task) => task.completed);
+
+  const filteredTasks =
+    currentFilter === "Active"
+      ? activeTasks
+      : currentFilter === "Completed"
+        ? completedTasks
+        : tasks;
+
   const deleteItem = (task) => {
     setTasks((prev) => prev.filter((item) => item.id !== task.id));
+
+    if (editItem === task.id) {
+      setEditItem(null);
+      setEditText("");
+    }
   };
 
   const completedItem = (task) => {
@@ -33,9 +48,14 @@ export function TaskList({ tasks, setTasks }) {
   return (
     <>
       <ul>
-        {tasks.map((task) => (
+        {filteredTasks.map((task) => (
           <li key={task.id} className="flex gap-4">
-            <button onClick={() => completedItem(task)}>Completed</button>
+            <button
+              onClick={() => completedItem(task)}
+              className={`${editItem === task.id ? "hidden" : ""}`}
+            >
+              Completed
+            </button>
             {editItem === task.id ? (
               <div className="flex border">
                 <input
@@ -52,15 +72,17 @@ export function TaskList({ tasks, setTasks }) {
                   }}
                   onChange={(text) => setEditText(text.target.value)}
                 ></input>
-                <button onClick={() => editedText(task.id)}>Save</button>
-                <button
-                  onClick={() => {
-                    setEditItem(null);
-                    setEditText("");
-                  }}
-                >
-                  Cancel
-                </button>
+                <div className="flex gap-2">
+                  <button onClick={() => editedText(task.id)}>Save</button>
+                  <button
+                    onClick={() => {
+                      setEditItem(null);
+                      setEditText("");
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </div>
             ) : (
               <p className={`${task.completed ? "line-through" : ""}`}>
