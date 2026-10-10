@@ -54,7 +54,7 @@ export function TaskList({ tasks, setTasks, currentFilter }) {
               onClick={() => completedItem(task)}
               className={`${editItem === task.id ? "hidden" : ""}`}
             >
-              Completed
+              Complete
             </button>
             {editItem === task.id ? (
               <div className="flex border">

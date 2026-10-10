@@ -24,9 +24,16 @@ export function TaskMenu() {
   }, [tasks]);
 
   return (
-    <div className="flex flex-col items-center justify-center max-w-7xl mx-auto min-h-screen">
+    <div className="px-4 max-w-7xl mx-auto min-h-screen font-inter mt-40">
+      <h1 className="text-4xl font-semibold">My tasks</h1>
+      <TaskFilter
+        currentFilter={currentFilter}
+        setCurrentFilter={setCurrentFilter}
+        allTasks={tasks.length}
+        activeTasks={tasks.filter((task) => !task.completed).length}
+        completedTasks={tasks.filter((task) => task.completed).length}
+      />
       <TaskForm setTask={setTask} task={task} handleAddTask={handleAddTask} />
-      <TaskFilter setCurrentFilter={setCurrentFilter} />
       <TaskList
         tasks={tasks}
         setTasks={setTasks}
