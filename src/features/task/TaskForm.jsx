@@ -10,7 +10,7 @@ export function TaskForm({ task, setTask, handleAddTask }) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex gap-2 items-center justify-between border rounded-md">
+      <div className="flex gap-2 items-center justify-between border border-gray-300 rounded-md px-2">
         <Plus size={24} />
         <input
           type="text"
@@ -19,7 +19,9 @@ export function TaskForm({ task, setTask, handleAddTask }) {
           className="w-full outline-none py-3 px-1"
           onChange={(e) => setTask(e.target.value)}
         />
-        <button>Add task</button>
+        <button className="cursor-pointer text-sm w-30 p-2 bg-gray-200 rounded-sm">
+          Add task
+        </button>
       </div>
     </form>
   );
