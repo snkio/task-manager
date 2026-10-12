@@ -10,7 +10,7 @@ export function TaskForm({ task, setTask, handleAddTask }) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex gap-2 items-center justify-between border border-gray-300 rounded-md px-2">
+      <div className="flex w-full gap-2 items-center justify-between border border-gray-300 rounded-md px-2">
         <Plus size={24} />
         <input
           type="text"

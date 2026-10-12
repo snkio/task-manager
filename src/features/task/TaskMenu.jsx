@@ -24,7 +24,7 @@ export function TaskMenu() {
   }, [tasks]);
 
   return (
-    <div className="px-4 max-w-7xl mx-auto min-h-screen font-inter mt-40">
+    <div className="px-4 max-w-7xl mx-auto min-h-screen font-inter pt-24">
       <h1 className="text-4xl font-semibold">My tasks</h1>
       <TaskFilter
         currentFilter={currentFilter}
