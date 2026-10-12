@@ -71,7 +71,7 @@ export function TaskList({ tasks, setTasks, currentFilter }) {
                   aria-label={`Mark ${task.title} as ${task.completed ? "active" : "completed"}`}
                 >
                   <span
-                    className={`relative flex justify-center items-center w-6 h-6 border border-gray-500 rounded-full after:transition-transform after:absolute after:content-[''] after:duration-300 after:ease-out  ${task.completed ? "after:w-3 after:h-5 after:border-b-2 after:border-r-2 after:rotate-45 after:opacity-100 after:scale-100" : "after:rotate-0 after:opacity-0 after:scale-0"}`}
+                    className={`relative flex justify-center items-center w-6 h-6 border border-gray-500 rounded-full after:transition-transform after:absolute after:content-[''] after:duration-300 after:ease-out  ${task.completed ? "after:w-2 after:h-4 after:border-b-2 after:border-r-2 after:rotate-45 after:opacity-100 after:scale-100" : "after:rotate-0 after:opacity-0 after:scale-0"}`}
                   ></span>
                 </button>
                 {editingTaskId === task.id ? (
