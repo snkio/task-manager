@@ -113,7 +113,7 @@ export function TaskList({ tasks, setTasks, currentFilter }) {
                   </div>
                 ) : (
                   <p
-                    className={`relative wrap-anywhere min-w-0 flex-1 after:absolute after:content-[''] after:h-0.5 after:rounded-full after:left-0 after:top-1/2 after:bg-black/80 after:transition-all after:duration-300 after:ease-out ${task.completed ? "text-black/60 after:w-full" : "after:w-0"}`}
+                    className={`relative wrap-anywhere after:absolute after:content-[''] after:h-0.5 after:rounded-full after:left-0 after:top-1/2 after:bg-black/80 after:transition-all after:duration-300 after:ease-out ${task.completed ? "text-black/60 after:w-full" : "after:w-0"}`}
                   >
                     {task.title}
                   </p>
